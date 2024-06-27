@@ -24,23 +24,22 @@ var configData = configuration.Get<ConfigurationData>();
 
 foreach (var card in listCard)
 {
-    if (card.Type == CardType.Fisico)
+    switch (card.Type)
     {
-        card.Shortcuts = configData.ConfigFisico.Shortcuts;
-        card.Buttons = configData.ConfigFisico.Buttons;
+        case CardType.Fisico:
+            card.Shortcuts = configData.ConfigFisico.Shortcuts;
+            card.Buttons = configData.ConfigFisico.Buttons;
+            break;
+        case CardType.Virtual:
+            card.Shortcuts = configData.ConfigVirtual.Shortcuts;
+            card.Buttons = configData.ConfigVirtual.Buttons;
+            break;
     }
-    if (card.Type == CardType.Virtual)
-    {
-        card.Shortcuts = configData.ConfigVirtual.Shortcuts;
-        card.Buttons = configData.ConfigVirtual.Buttons;
-    }
+
     card.FillShortcutsParams();
     card.FillButtonsParams();
 }
 
 var a = Newtonsoft.Json.JsonConvert.SerializeObject(listCard);
-
-
-
 
 Console.ReadKey();

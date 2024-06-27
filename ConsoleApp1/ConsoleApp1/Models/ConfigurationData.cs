@@ -64,12 +64,18 @@ public enum CardType
     Virtual
 }
 
-public class Card
+public class Card : Base
 {
     public Guid CardId { get; set; }
     public string Number { get; set; }
     public CardType Type { get; set; }
+}
+
+
+public abstract class Base
+{
     public List<Shortcut> Shortcuts { get; set; }
+    
     public List<Button> Buttons { get; set; }
 
     public void FillShortcutsParams()
