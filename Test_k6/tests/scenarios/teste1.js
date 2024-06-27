@@ -4,7 +4,6 @@ import { errorRate } from '../options.js';
 
 export default function () {
     let res = http.get('https://localhost:7148/Test/Teste1');
-    let duration = 'Falha';
 
     console.info(res);
     console.log("Passei aqui 1");
