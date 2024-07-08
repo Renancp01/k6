@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { check, fail,sleep } from 'k6';
-import { errorRate } from '../options.js';
+import { errorRate } from '../options/loadTestOptions.js';
 
 export default function () {
     let res = http.get('https://localhost:7148/Test/Teste1');

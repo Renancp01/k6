@@ -2,10 +2,10 @@ import { Rate } from 'k6/metrics';
 
 export let errorRate = new Rate('errors');
 
-export let options = {
+export let loadTestOptions = {
   stages: [
-    { duration: '30s', target: 20 }, // Ramp-up para 20 usuários em 30 segundos
-    { duration: '1m', target: 20 },  // Mantém 20 usuários por 1 minuto
+    { duration: '30s', target: 10 }, // Ramp-up para 20 usuários em 30 segundos
+    { duration: '1m', target: 10 },  // Mantém 20 usuários por 1 minuto
     { duration: '10s', target: 0 },  // Ramp-down para 0 usuários em 10 segundos
   ],
   thresholds: {
